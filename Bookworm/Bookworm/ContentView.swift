@@ -18,7 +18,7 @@ struct ContentView: View {
             List {
                 ForEach(books) { book in
                     NavigationLink {
-                        Text(book.title ?? "Unknown Title")
+                        DetailVIew(book: book)
                     } label: {
                         HStack {
                             EmojiRatingVIew(rating: book.rating)
