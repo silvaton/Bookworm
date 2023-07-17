@@ -38,6 +38,12 @@ struct DetailVIew: View {
             Text(book.review ?? "No review")
                 .padding()
             
+            if let date = book.date {
+                let newDate = date.formatted(date: .abbreviated, time: .omitted)
+                Text("Book added on \(newDate)")
+                    .padding()
+            }
+            
             RatingView(rating: .constant(Int(book.rating)))
                 .font(.largeTitle)
         }
@@ -57,6 +63,7 @@ struct DetailVIew: View {
             }
         }
     }
+    
     
     func deleteBook() {
         moc.delete(book)
