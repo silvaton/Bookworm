@@ -52,10 +52,18 @@ struct AddBookView: View {
                         try? moc.save()
                         dismiss()
                     }
+                    .disabled(isValidBook == false)
                 }
             }
             .navigationTitle("Add Book")
         }
+    }
+    
+    var isValidBook: Bool {
+        if title.isEmpty || author.isEmpty || genre.isEmpty {
+            return false
+        }
+        return true
     }
 }
 
